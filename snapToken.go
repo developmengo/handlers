@@ -1,4 +1,4 @@
-package snap
+package handlers
 
 type (
 	SnapTokenReq struct {

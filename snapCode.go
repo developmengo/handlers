@@ -1,4 +1,4 @@
-package snap
+package handlers
 
 const (
 	Unauthorized       = "4010000"

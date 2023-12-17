@@ -1,4 +1,4 @@
-package snap
+package handlers
 
 import (
 	"crypto"
