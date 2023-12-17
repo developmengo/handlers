@@ -23,7 +23,7 @@ func init() {
 func SetRedis(key string, value []byte) error {
 	err := Client.Set(key, value, 0).Err()
 	if err != nil {
-		fmt.Println("ERROR CREATE OPERATOR REDIS : ", err)
+		fmt.Println("ERROR CREATE REDIS : ", err)
 	}
 	return err
 }
