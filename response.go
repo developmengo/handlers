@@ -18,4 +18,6 @@ type ArrayResponse struct {
 type Search struct {
 	Where  map[string]interface{} `json:"where"`
 	Column []string               `json:"column"`
+	Limit  int                    `json:"limit"`
+	Skip   int                    `json:"skip"`
 }
