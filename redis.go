@@ -3,6 +3,8 @@ package handlers
 import (
 	"fmt"
 	"os"
+	"strconv"
+	"time"
 
 	"github.com/go-redis/redis"
 )
@@ -18,6 +20,22 @@ func init() {
 		Password: "",
 		DB:       0,
 	})
+}
+
+func SetRedisWithTime(key string, value []byte, timeAccess bool, dr int64) error {
+	duration := time.Duration(dr) * time.Minute
+	if timeAccess {
+
+		rduration := os.Getenv("RedisDuration")
+
+		n, _ := strconv.Atoi(rduration)
+		duration = time.Duration(n) * time.Minute
+	}
+	err := Client.Set(key, value, duration).Err()
+	if err != nil {
+		return err
+	}
+	return err
 }
 
 func SetRedis(key string, value []byte) error {
